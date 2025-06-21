@@ -1,0 +1,48 @@
+---
+title: "Penguin Data Analysis"
+author: "Raj Mishra"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Penguin Data Analysis
+
+## Loading Data
+
+In this section, I load the `tidyverse` and `palmerpenguins` packages and use the built-in `penguins` dataset.
+
+```{r load-data}
+library(tidyverse)
+library(palmerpenguins)
+
+data("penguins")
+```
+
+## Exploring the Data
+
+Here, I generate a summary and structure of the `penguins` dataset to understand the variables and any missing values.
+
+```{r explore-data}
+summary(penguins)
+glimpse(penguins)
+```
+
+## Visualizing the Data
+
+This scatterplot shows the relationship between bill length and bill depth across penguin species.
+
+```{r bill-plot}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point() +
+  labs(title = "Bill Length vs Bill Depth by Species",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)")
+```
+
+## Conclusion
+
+In this analysis, I explored the Palmer Penguins dataset and visualized the relationship between physical measurements. The scatterplot highlights how species differ in bill dimensions, which is useful for species classification.
